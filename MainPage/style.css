@@ -2,18 +2,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Martel+Sans&family=Oswald&family=Quattrocento:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Jockey+One&family=Martel+Sans&family=Oswald&family=Quattrocento:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo&family=Inter&family=Jockey+One&family=Martel+Sans&family=Oswald&family=Quattrocento:wght@700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Archivo&family=Inter&family=Jockey+One&family=Martel+Sans&family=Oswald&family=Quattrocento:wght@700&family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo&family=Inter&family=Jockey+One&family=Klee+One&family=Martel+Sans&family=Oswald&family=Quattrocento:wght@700&family=Staatliches&display=swap');
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
+    /* background-color: #FAF4E8; */
 }
 
 body{
     background: #FAF4E8;
     font-family: 'Martel Sans', sans-serif;
-
+    /* background-image: url('../Images/bg.png'); */
 
 }
 
@@ -66,10 +69,10 @@ nav{
 }
 
 .heading{
-    color: #008E1F;
-    font-weight: 900;
-    font-family: 'Inter', sans-serif;
-    font-size: 38px;    
+    color: #0D7947;
+    font-weight: 300;
+    font-family: 'Staatliches', sans-serif;
+    font-size: 53px;    
 }
 
 .leftMain{
@@ -80,10 +83,10 @@ nav{
 
 .subheading{
     margin-top: 10vh;
-    color: #73A53A;
-    font-weight: 400;
-    font-family: 'Inter', sans-serif;
-    font-size: 20px; 
+    color: #3aa53f;
+    font-weight: 600;
+    font-family: 'Klee One', sans-serif;
+    font-size: 21px; 
     width: 40vw;
 }
 
@@ -201,6 +204,7 @@ nav{
 .searchBox{
     width: 45vw;
     height: 3vw;
+    font-size: 1.2vw;
     border: none;
     background-color: #008E1F00;
     vertical-align: middle;
@@ -233,7 +237,7 @@ nav{
 
 .randomMealheading{
     margin-top: 40px;
-    color: #00781a;
+    color: #0D7947;
     font-weight: 700;
     font-family: 'Inter', sans-serif;
     font-size: 36px;    
@@ -250,7 +254,7 @@ nav{
 
 .backArea{
     background: #FAF4E8;
-    box-shadow: 9px 4px 9.5px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 44px 0px rgba(0, 0, 0, 0.3);
     width:60vw;
     height: 21vw;
     margin-left: 17px;
@@ -272,6 +276,9 @@ nav{
     align-items: center;
     justify-content: space-between;
     padding: 20px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .randomMealImg{
@@ -285,6 +292,12 @@ nav{
     font-family: 'Jockey One', sans-serif;
     font-size: 2vw;
     font-weight: 200;
+    /* overflow: hidden; */
+    width: 90%;
+    white-space: nowrap;
+    max-width: 90%;
+    text-align: center;
+    text-overflow:ellipsis;
 }
 
 .pin{
@@ -353,6 +366,12 @@ nav{
     font-family: 'Jockey One', sans-serif;
     font-size: 2vw;
     font-weight: 200;
+    width: 90%;
+    white-space: nowrap;
+    max-width: 90%;
+    overflow: hidden;
+    text-align: center;
+    text-overflow:ellipsis;
 }
 
 .SearchPin{
@@ -364,7 +383,7 @@ nav{
 }
 
 .searchedResultHeading{
-    color: #00781a;
+    color: #0D7947;
     font-weight: 700;
     font-family: 'Inter', sans-serif;
     font-size: 36px;
@@ -455,7 +474,7 @@ nav{
     top: 0%;
     left: 0%;
     background-color: #faf4e829;
-    z-index: 4;
+    z-index: 10;
 }
 
 .close:hover,.randomMealArea:hover,.search:hover{
@@ -468,13 +487,24 @@ nav{
     padding: 17px;
     position: sticky;
     top: 0px;
-    z-index: 3;
+    z-index: 2;
     border-bottom: 1px solid rgba(163, 163, 163, 0.525);
     display: flex;
     align-items: center;
     justify-content: center;
     width: 80vw;
     margin-left: 10vw;
+}
+
+.logo:hover{
+    cursor: pointer;
+}
+
+.hmRandom{
+    color: #0D7947;
+    font-weight: 500;
+    font-family: 'Archivo';
+    font-size: 4.5vw;
 }
 
 .hamburger{
@@ -486,6 +516,7 @@ nav{
     top: 0%;
     border: 2px solid black;
     padding: 30px 40px;
+    z-index: 5;
 }
 
 .menu{
@@ -538,6 +569,42 @@ nav{
 
 .whitePart2{
     display: none;
+}
+
+.searchedResultsArea{
+    visibility: hidden;
+}
+
+.result:hover{
+    transform: scale(1.05);
+    animation: zoomIn 0.2s linear;
+}
+
+
+.searchedMealImg{
+    overflow: hidden;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+.scrollHere{
+    width: 10vw;
+    height: 10px;
+    background-color: #FAF4E8;
+    margin-top: -140px;
+    margin-bottom: 140px;
+}
+
+@keyframes zoomIn {
+    0%{
+        transform: scale(1.0);
+    }
+    100%{
+        transform: scale(1.05);
+    }
 }
 
 @media screen and (max-width: 600px) {

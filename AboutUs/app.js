@@ -1,4 +1,8 @@
 //REDIRECT to another page on click from NAVBAR
+document.querySelector('.logo').onclick = () => {
+    window.location.href = "../index.html"
+}
+
 document.querySelector(".gotoHome").onclick = () => {
     window.location.href = "../index.html"
 }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Fiesta</title>
     <link rel="stylesheet" href="./MainPage/style.css">
+    <link rel="icon" href="./Images/chilli.png" type="image/x-icon"/>
 </head>
 
 <body>
@@ -20,7 +21,7 @@
 
             <ol class="navbarItems">
                 <li class="listItems gotoHome sel">Home</li>
-                <li class="listItems gotoRandom">Random Recipe</li>
+                <li class="listItems gotoRandom"><a href="#here">Random Recipe</a></li>
                 <li class="listItems gotoContact ">Contact Us</li>
                 <li class="listItems gotoAbout">About Us</li>
             </ol>
@@ -76,7 +77,7 @@
         </div>
     </div>
 
-    <div class="searchSticky">
+    <div class="searchSticky" id="here">
         <div class="searchboxArea">
 
             <input type="text" class="searchBox" placeholder="Search for desired item here">
@@ -120,45 +121,18 @@
         
     </div>
 
+    <div class="scrollHere"></div>
+
     <div class="searchedResultsArea">
         <h1 class="searchedResultHeading">
             Searched Results
         </h1>
 
         <div class="resultsGrid">
-            <div class="result">
-                <img src="./Images/friedchicken.jpg" alt="Searched Meal Image" class="searchedMealImg">
-                <h4 class="searchedMealName">FRIED CHICKEN</h4>
-                <img src="./Images/pin.png" alt="Pin Image" class="SearchPin">
-            </div>
-            <div class="result">
-                <img src="./Images/friedchicken.jpg" alt="Searched Meal Image" class="searchedMealImg">
-                <h4 class="searchedMealName">FRIED CHICKEN</h4>
-                <img src="./Images/pin.png" alt="Pin Image" class="SearchPin">
-            </div>
-            <div class="result">
-                <img src="./Images/friedchicken.jpg" alt="Searched Meal Image" class="searchedMealImg">
-                <h4 class="searchedMealName">FRIED CHICKEN</h4>
-                <img src="./Images/pin.png" alt="Pin Image" class="SearchPin">
-            </div>
-            <div class="result">
-                <img src="./Images/friedchicken.jpg" alt="Searched Meal Image" class="searchedMealImg">
-                <h4 class="searchedMealName">FRIED CHICKEN</h4>
-                <img src="./Images/pin.png" alt="Pin Image" class="SearchPin">
-            </div>
-            <div class="result">
-                <img src="./Images/friedchicken.jpg" alt="Searched Meal Image" class="searchedMealImg">
-                <h4 class="searchedMealName">FRIED CHICKEN</h4>
-                <img src="./Images/pin.png" alt="Pin Image" class="SearchPin">
-            </div>
-            <div class="result">
-                <img src="./Images/friedchicken.jpg" alt="Searched Meal Image" class="searchedMealImg">
-                <h4 class="searchedMealName">FRIED CHICKEN</h4>
-                <img src="./Images/pin.png" alt="Pin Image" class="SearchPin">
-            </div>
+            
         </div>
     </div>
-
+<div class="h"></div>
     <div class="bigModal">
         <div class="modalContainer">
             <div class="modalTop">
@@ -173,7 +147,7 @@
                     <img src="./Images/pin.png" alt="Pin Image" class="modalPin">
                 </div>
                 <div class="list">
-                    <ol>
+                    <ol class="modalList">
                         <li>Chicken</li>
                         <li>Buttermilk</li>
                         <li>Flour</li>
@@ -200,7 +174,7 @@
                 <div class="line"></div>
                 <li class="hmItems hmHome">HOME</li>
                 <div class="line"></div>
-                <li class="hmItems hmRandom">RANDOM RECIPE</li>
+                <a href="#here"><li class="hmItems hmRandom">RANDOM RECIPE</li></a>
                 <div class="line"></div>
                 <li class="hmItems hmAbout">ABOUT US</li>
                 <div class="line"></div>

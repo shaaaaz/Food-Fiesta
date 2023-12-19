@@ -1,9 +1,10 @@
 //REDIRECT to another page on click from NAVBAR
-document.querySelector(".gotoHome").onclick = () => {
+
+document.querySelector('.logo').onclick = () => {
     window.location.href = "../index.html"
 }
 
-document.querySelector(".gotoRandom").onclick = () => {
+document.querySelector(".gotoHome").onclick = () => {
     window.location.href = "../index.html"
 }
 
@@ -83,10 +84,6 @@ document.querySelector(".hmHome").onclick = () => {
     window.location.href = "../index.html"
 }
 
-document.querySelector(".hmRandom").onclick = () => {
-    window.location.href = "../index.html"
-}
-
 document.querySelector(".hmAbout").onclick = () => {
     window.location.href = "../AboutUs/index.html"
 }
@@ -123,6 +120,23 @@ async function getRandomMeal() {
             el.innerHTML = data.meals[0].strMeal;
         })
 
+        let modalList = document.querySelector('.modalList')
+
+        modalList.innerHTML = ""
+
+        console.log(data)
+
+        let currentMeal = data.meals[0]
+
+        console.log(currentMeal)
+
+        for(let i=1;i<9;i++){
+            const ingredient = `strIngredient${i}`
+            let ing = currentMeal.ingredient
+            console.log(ing)                             
+        }
+
+
     } catch (error) {
         //Incase theres an error we console log the error
         console.error("An error has occured while fetching the data for random meal - ", error);
@@ -151,14 +165,72 @@ searchButton.onclick = () => {
     getInputFromUserAndDisplay()
 }
 
+const resultsGrid = document.querySelector('.resultsGrid')
+const hideSearchResults = document.querySelector('.searchedResultsArea')
+
 function getInputFromUserAndDisplay(){
+   
+        
+
+    hideSearchResults.style.visibility = "visible" 
+
     const typeName = inputBox.value;
+
+    inputBox.innerHTML = ""
+
+    resultsGrid.innerHTML = ""
+
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${typeName}`)
       .then((data) => data.json())
       .then((data) => {
+        const diffMeals = data.meals
+
         console.log(data)
+
+        diffMeals.forEach((el) => {
+            let result = document.createElement('div')
+            result.setAttribute('class','result')
+
+            let searchImg = document.createElement('img')
+            searchImg.setAttribute('class','searchedMealImg')
+            searchImg.setAttribute('src',el.strMealThumb)
+            searchImg.setAttribute('alt','Searched Meal Image"')
+
+            let searchHeading = document.createElement('h4')
+            searchHeading.setAttribute('class','searchedMealName')
+            searchHeading.innerHTML = el.strMeal
+
+            let pinImg = document.createElement('img')
+            pinImg.setAttribute('class','SearchPin')
+            pinImg.setAttribute('src','./Images/pin.png')
+            pinImg.setAttribute('alt','Pin Image"')
+
+            result.append(searchImg,searchHeading,pinImg)
+
+            resultsGrid.append(result)
+        })
       });
+
+    //   var elementToScrollTo = document.querySelector('.hi')
+        
+    //   elementToScrollTo.scrollIntoView({behavior: "smooth" });
+
+      setTimeout(()=>{
+        var elementToScrollTo = document.querySelector('.scrollHere')
+        
+      elementToScrollTo.scrollIntoView({behavior: "smooth" });
+      },1000)
 }
+
+const hmRandom = document.querySelector('.hmRandom')
+
+hmRandom.onclick = () => {
+    hamIcon.style.display = "block"
+    ham.style.display = "none"
+}
+
+
+
 
 
 
