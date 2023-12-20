@@ -9,17 +9,17 @@ document.querySelector(".gotoHome").onclick = () => {
 }
 
 document.querySelector(".gotoAbout").onclick = () => {
-    window.location.href = "../AboutUs/index.html"
+    window.location.href = "./AboutUs/index.html"
 }
 
 document.querySelector(".gotoContact").onclick = () => {
-    window.location.href = "../ContactUs/index.html"
+    window.location.href = "./ContactUs/index.html"
 }
 
 const contact = document.querySelector(".gotoContact")
 
 contact.onclick = () => {
-    window.location.href = "../ContactUs/index.html"
+    window.location.href = "./ContactUs/index.html"
 }
 
 //MODAL visisble and hide it
