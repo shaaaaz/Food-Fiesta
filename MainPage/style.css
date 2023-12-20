@@ -10,13 +10,12 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    /* background-color: #FAF4E8; */
 }
 
 body{
+    height: auto;
     background: #FAF4E8;
     font-family: 'Martel Sans', sans-serif;
-    /* background-image: url('../Images/bg.png'); */
 
 }
 
@@ -292,7 +291,6 @@ nav{
     font-family: 'Jockey One', sans-serif;
     font-size: 2vw;
     font-weight: 200;
-    /* overflow: hidden; */
     width: 90%;
     white-space: nowrap;
     max-width: 90%;
@@ -330,7 +328,6 @@ nav{
     margin-left: 10vw;
     margin-right: 10vw;
     width: 80vw;
-    /* height: 100vh; */
 }
 
 .resultsGrid{
@@ -452,6 +449,16 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-around;
+}
+
+.nothingFound{
+    color: #0D7947;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    font-size: 33px;
+    margin-bottom: 20px;
+    text-align: center;
+    
 }
 
 .list{
@@ -598,6 +605,18 @@ a{
     margin-bottom: 140px;
 }
 
+.resultsGrid{
+    margin-top: -5vw;
+}
+
+.factSection{
+    margin-right: 3vw;
+}
+
+.nothingFound{
+    visibility: hidden;
+}
+
 @keyframes zoomIn {
     0%{
         transform: scale(1.0);
@@ -608,6 +627,12 @@ a{
 }
 
 @media screen and (max-width: 600px) {
+    .hmIcon{
+        display: block;
+    }
+    .searchBox{
+        font-size: 4.5vw;
+    }
     .navright{
         display: none;
     }
@@ -632,7 +657,6 @@ a{
     .right{
         width: 70vw;
         height: 70vw;
-        /* background-color: #008E1F; */
     }
     .row1{
         width: 100%;
@@ -776,10 +800,11 @@ a{
         grid-template-columns: 1fr 1fr;
         row-gap: 30px;
         column-gap: 5vw;
+        margin-top: -20vw;
     }
     .result{
-        width: 100%;
-        height: 26vw;
+        width: 40vw;
+        height: 30vw;
     }
     .searchedMealName{
         font-size: 3vw;

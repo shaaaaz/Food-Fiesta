@@ -61,6 +61,10 @@ closeHam.onclick = () => {
 }
 
 //Solve the bug of hiding hamburger when window is RESIZED
+let Swidth = screen.width;
+if(Swidth <= 600){
+    hamIcon.style.display = "block"
+}
 
 addEventListener("resize", (event) => {
     let width = screen.width;
@@ -92,12 +96,6 @@ document.querySelector(".hmContact").onclick = () => {
     window.location.href = "../ContactUs/index.html"
 }
 
-
-
-
-
-
-
 //code to get IMAGE and NAME of the RANDOM MEAL via API
 
 const randomMealImg = document.querySelectorAll('.randomMealImg')
@@ -109,8 +107,6 @@ async function getRandomMeal() {
         const res = await fetch(`https://www.themealdb.com/api/json/v1/1/random.php`);
         const data = await res.json();
 
-        console.log(data);
-
         //DISPLAYING the image and meal in main page as well as MODAL using FOREACH
         randomMealImg.forEach(el => {
             el.setAttribute('src',`${data.meals[0].strMealThumb}`);
@@ -120,22 +116,27 @@ async function getRandomMeal() {
             el.innerHTML = data.meals[0].strMeal;
         })
 
+        //Take ingredients and we display it into modalList
         let modalList = document.querySelector('.modalList')
 
         modalList.innerHTML = ""
 
-        console.log(data)
-
         let currentMeal = data.meals[0]
 
-        console.log(currentMeal)
+        let ingredientsList = []
 
-        for(let i=1;i<9;i++){
-            const ingredient = `strIngredient${i}`
-            let ing = currentMeal.ingredient
-            console.log(ing)                             
+        for (let i = 1; i <= 8; i++) {
+            //take every ingredient individually till there are no ingredients left
+            const ingredient = data.meals[0][`strIngredient${i}`];
+            const measure = data.meals[0][`strMeasure${i}`];
+            
+            // Add non-empty ingredients and measures to the list
+            if (ingredient && measure) {
+                ingredientsList+=`<li>${measure} ${ingredient}</li>`
+            }
+
+            modalList.innerHTML = `${ingredientsList}`
         }
-
 
     } catch (error) {
         //Incase theres an error we console log the error
@@ -165,63 +166,91 @@ searchButton.onclick = () => {
     getInputFromUserAndDisplay()
 }
 
+// now we have to display searched resukts by category when enter pis piressed or button is clciked
 const resultsGrid = document.querySelector('.resultsGrid')
 const hideSearchResults = document.querySelector('.searchedResultsArea')
 
 function getInputFromUserAndDisplay(){
-   
-        
 
+    //make entire search area visible
     hideSearchResults.style.visibility = "visible" 
 
     const typeName = inputBox.value;
 
+    // make result grid empty
     inputBox.innerHTML = ""
 
     resultsGrid.innerHTML = ""
 
-    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${typeName}`)
+    // fettch data from API by category via input box
+    fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${typeName}`)
+    
       .then((data) => data.json())
       .then((data) => {
         const diffMeals = data.meals
+        //convert it to JSON
 
-        console.log(data)
+        //if theres no result found it should make the nohing found text  visible 
+        let nothingFound = document.querySelector('.nothingFound')
 
+        setTimeout(()=>{
+            if(diffMeals == null){
+                nothingFound.style.visibility = "visible"
+            }
+            else{
+                nothingFound.style.visibility = "hidden"
+            }
+          },1000)
+
+        // for each meal there will be a new result tile generated
+        if(diffMeals != null)
+        {
         diffMeals.forEach((el) => {
+            //assign class to this result file
             let result = document.createElement('div')
             result.setAttribute('class','result')
 
+            // addd the image to the div and give it appropriate class
             let searchImg = document.createElement('img')
             searchImg.setAttribute('class','searchedMealImg')
             searchImg.setAttribute('src',el.strMealThumb)
             searchImg.setAttribute('alt','Searched Meal Image"')
 
+            // write the name of he dish below the pic of the dish
             let searchHeading = document.createElement('h4')
             searchHeading.setAttribute('class','searchedMealName')
             searchHeading.innerHTML = el.strMeal
 
+
+            //pin image
             let pinImg = document.createElement('img')
             pinImg.setAttribute('class','SearchPin')
             pinImg.setAttribute('src','./Images/pin.png')
             pinImg.setAttribute('alt','Pin Image"')
 
+            // append the following stuff to result Tile
             result.append(searchImg,searchHeading,pinImg)
 
+            // now append the result tile to the Results grid
             resultsGrid.append(result)
         })
+    }
+
+        // make the nohitng found text visible after a second if theres nothing there
+        
       });
 
-    //   var elementToScrollTo = document.querySelector('.hi')
-        
-    //   elementToScrollTo.scrollIntoView({behavior: "smooth" });
-
+    //   using set timeout to scroll when random recipe from navbar is clicked
       setTimeout(()=>{
         var elementToScrollTo = document.querySelector('.scrollHere')
         
       elementToScrollTo.scrollIntoView({behavior: "smooth" });
       },1000)
+
+      
 }
 
+//hamburger menu
 const hmRandom = document.querySelector('.hmRandom')
 
 hmRandom.onclick = () => {
@@ -229,6 +258,23 @@ hmRandom.onclick = () => {
     ham.style.display = "none"
 }
 
+
+//display a random fact from the three in the DID YOU KNOW? Section using math.random
+const fact = document.querySelector('.fact')
+
+window.onload = () => {
+    var randomNumber = Math.floor(Math.random() * 3) + 1;
+
+    if(randomNumber == 1){
+        fact.innerHTML = `Potatoes were the first <br>food planted in space!`
+    }
+    if(randomNumber == 2){
+        fact.innerHTML = `Raspberries are a member of <br>the ROSE family!`
+    }
+    if(randomNumber == 3){
+        fact.innerHTML = `There's more water in<br>cucumber than a Watermelon!`
+    }
+}
 
 
 
