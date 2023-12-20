@@ -25,15 +25,13 @@ Food Fiesta is a web application that leverages an external API to fetch informa
 
 ## Links
 
-- Github Repo Link: 
+- Github Repo Link: https://github.com/shaaaaz/Food-Fiesta
 
-- Github Deployed Link: 
+- Netlify Depolyed Link: https://food-fiesta-by-shaaz.netlify.app
 
-- Netlify Depolyed Link: 
+- Figma (Desktop Version):https://www.figma.com/file/37gfJJ7EPsbJhzQw2eZaVq/Food-Fiesta-(Desktop-Version)-by-Shaaz-Jiwani?type=design&node-id=0%3A1&mode=design&t=XOlUIFfHZE1z3K04-1
 
-- Figma (Desktop Version):
-
-- Figma (Mobile Version): 
+- Figma (Mobile Version): https://www.figma.com/file/mbetyVy5aKoeKD5VZTKLCM/Food-Fiesta-(Mobile-Version)-by-Shaaz-Jiwani?type=design&node-id=0%3A1&mode=design&t=L4EHzsOb79gekaQs-1
 
 ## Screenshots
 
